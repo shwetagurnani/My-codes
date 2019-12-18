@@ -1,0 +1,8 @@
+1. to create a new node in leet code
+'auto c = new ListNode(sum%10);
+	         c->next =NULL;
+
+2.take care of input empty string in leet code
+
+
+3.take care while adding two numbers they may not be dsame
