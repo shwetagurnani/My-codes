@@ -1,0 +1,35 @@
+#define ll long long
+class Solution {
+public:
+    string reverseVowels(string s) {
+         // transform(s.begin(), s.end(), s.begin(), ::tolower); 
+       ll l=s.size();
+        ll k=0;
+        ll c=0;
+        ll p=l-1;
+        ll temp;
+        for(ll i=0;i<l;i++)
+        {
+            if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'||s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')
+                c++;
+        }
+        c=c/2;
+        while(c>0)
+        {
+            while(!(s[k]=='a'||s[k]=='e'||s[k]=='i'||s[k]=='o'||s[k]=='u'||s[k]=='A'||s[k]=='E'||s[k]=='I'||s[k]=='O'||s[k]=='U'))
+                k++;
+             while(!(s[p]=='a'||s[p]=='e'||s[p]=='i'||s[p]=='o'||s[p]=='u'||s[p]=='A'||s[p]=='E'||s[p]=='I'||s[p]=='O'||s[p]=='U'))
+                p--;
+           
+            temp=s[k];
+            s[k]=s[p];
+            s[p]=temp;
+            // cout<<"k"<<k<<"p"<<p;
+            c--;
+            k++;
+            p--;
+        }
+          return s;   
+    }
+   
+};
