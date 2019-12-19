@@ -1,0 +1,78 @@
+#define ll long long
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+     ListNode *ptr=head;
+        int c=0;
+        while(ptr!=NULL)
+        {
+            c++;
+            ptr=ptr->next;
+        }
+        cout<<c;
+        if(c==0||c==1)
+        return true;
+        
+        ll mid;
+        if(c%2==0)
+        {
+            mid=(c/2);
+        }
+        else
+        {
+            mid=(c/2)+1;
+        }
+       ListNode* mprev;
+       ListNode* mvalue;
+       mprev=head;
+       mvalue=head->next;
+       for(int i=0;i<mid-1;i++)
+      {
+      mprev=mvalue;
+      mvalue=mvalue->next;
+      }
+      ListNode* nvalue;
+      nvalue=head;
+      for(int i=1;i<c;i++)
+      {
+      nvalue=nvalue->next;
+       }
+        
+     ListNode* curr=mvalue;
+     ListNode* prev=NULL;
+     ListNode* Next=NULL;
+      while(curr!=NULL)
+      {
+          Next=curr->next;
+          curr->next=prev;
+         
+          prev=curr;
+          curr=Next;
+      }
+     
+        mprev->next=nvalue;
+
+         ListNode *ptr2=head;
+        
+        for(ll i=1;i<=mid;i++)
+        {
+            ptr2=ptr2->next;
+        }
+       
+        
+        ListNode *ptr3=head;
+        while(ptr2!=NULL)
+        {
+            if(ptr2->val!=ptr3->val)
+              {
+                return false;
+
+              }
+            
+              ptr2=ptr2->next;
+              ptr3=ptr3->next;
+        }
+
+             return true;
+}
+};
