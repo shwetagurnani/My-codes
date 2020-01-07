@@ -1,0 +1,31 @@
+#define ll long long
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+       ll a[128]={0}, j=0,c=0,maxi=0;
+        for(ll i=0;i<s.length();i++)
+        {
+            if(i!=0)
+            {
+                ll x=s[i-1]-32;
+                a[x]--;
+                c--;
+            }
+            while(j<s.length())
+            {
+                ll b=s[j]-32;
+                if(a[b]==0)
+                {
+                    a[b]++;
+                    c++;
+                }
+                else
+                    break;
+                j++;
+            }
+            if(maxi<c)
+                maxi=c;
+        }
+        return maxi;
+    }
+};

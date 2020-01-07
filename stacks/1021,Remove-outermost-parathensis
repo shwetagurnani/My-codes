@@ -26,3 +26,5 @@ public:
         return S;
     }
 };
+
+************THIS QUESTION TEACH TO USE POINTER IN FORWARD DIRECTION WITHOUT USING STACK IN STACK TYPE QUESTIONS******************************

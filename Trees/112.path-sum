@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int p=0;
+    bool hasPathSum(TreeNode* root, int sum) {
+        if(root==NULL)
+            return 0;
+        sum=sum-root->val;
+        if(sum==0&&root->left==NULL&&root->right==NULL)
+        {
+            p=1;
+            return true;
+        }
+        if(p!=1)
+        {
+        hasPathSum(root->left,sum);
+        hasPathSum(root->right,sum);
+        }
+        if(p==1)
+            return true;
+        else
+            return false;
+    }
+};

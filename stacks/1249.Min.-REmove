@@ -1,0 +1,87 @@
+class Solution {
+public:
+    string minRemoveToMakeValid(string s) {
+        int open=0,close=0;
+        int index=0;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s[i]=='(')
+            {
+              s[index++]=s[i];
+                open++;
+                //cout<<s<<" ";
+            }
+            else if(s[i]==')')
+            {
+               
+                if(close<open)
+                {
+                     s[index++]=s[i];
+                    close++;
+                }
+            }
+            else
+            {
+                s[index++]=s[i];
+            }
+        }
+   
+        for(int i=index;i<s.length();i++)
+            s[i]='\0';
+        
+       if(open==close)
+           return s;
+        else
+        {
+            int index=s.length()-1;
+            for(int i=s.length()-1;i>=0;i--)
+            {
+               if(s[i]=='('&&open>close)
+                   open--;
+                else
+                    s[index--]=s[i];
+            }
+            int j=0;
+            for(int i=index+1;i<s.length();i++)
+            {
+                s[j++]=s[i];
+            }
+            s[j]='\0';
+            return s;
+        }
+        return "";
+    }
+};
+
+This question teaches how to use pointer in backward direction without using stack
+
+
+**********************USING STACK***************************************
+
+class Solution {
+public:
+    string minRemoveToMakeValid(string &s) {
+        stack<int> st;
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]==')'||s[i]=='(')
+            {
+                if(!st.empty()&&(s[st.top()]!=s[i]&&s[st.top()]=='('))
+                    st.pop();
+                else
+                    st.push(i);
+            }
+        }
+        while(!st.empty())
+        { int t=st.top();
+           ( s.erase(s.begin()+t));
+            st.pop();
+        }
+        return s;
+    }
+};
+
+
+
+
+

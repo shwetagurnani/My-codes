@@ -1,0 +1,25 @@
+#define ll long long
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ll k=n;
+        ListNode* ptr=head,*ptr2=head;
+        while(k--)
+        {
+            ptr2=ptr2->next;
+        }
+        if(ptr2==NULL)
+        {
+            head=head->next;
+            return head;
+        }
+        while(ptr2!=NULL&&ptr2->next!=NULL)
+        {
+            ptr2=ptr2->next;
+            ptr=ptr->next;
+        }
+        ptr->next=ptr->next->next;
+        return head;
+        
+    }
+};

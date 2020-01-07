@@ -1,0 +1,51 @@
+******TO FIND THE DEPTH OF A GIVEN NODE USING DFS(TREE)***********
+    int dfs(TreeNode* node,int depth,int child)
+    {
+        if(node==NULL)
+           return 0;
+        
+        depth=depth+1;
+        if(node->val==child)
+            dx=depth;
+       
+        dfs(node->left,depth,child);
+        dfs(node->right,depth,child);
+        
+        return dx;
+    }
+
+
+****************TO FIND THE PARENT OF A GIVEN NODE USING DFS(TREE)
+     int findParent(TreeNode* root,int child,int par)
+    {
+        if(root==NULL)
+            return -1;
+       
+        if(root->val==child)
+        {
+            x=par;
+            return 0;
+        }
+        else
+        {
+        findParent(root->left,child,root->val);
+        findParent(root->right,child,root->val);
+        return x;
+        }
+    
+            
+    }
+  
+****************DFS OF A TREE IS NORMAL BINARY TREE RECURSION TRAVERSAL************************int DFS(TreeNode* root)
+    {
+        if(root==NULL)
+            return -1;
+       
+        
+        findParent(root->left,child,root->val);
+        findParent(root->right,child,root->val);
+       
+            
+    }
+
+https://www.geeksforgeeks.org/dfs-traversal-of-a-tree-using-recursion/

@@ -1,0 +1,22 @@
+#define ll long long
+class Solution {
+public:
+    int findJudge(int N, vector<vector<int>>& trust) {
+        if(trust.size()==0)
+            return 1;
+     vector<int>v(N+2, 0);
+        for(ll i=0;i<trust.size();i++)
+        {
+            v[trust[i][0]]--;
+            v[trust[i][1]]++;
+            
+        }
+        for(ll i=0;i<=N;i++)
+        {
+            cout<<v[i]<<" ";
+            if(v[i]==N-1)
+                return i;
+        }
+        return -1;
+    }
+};

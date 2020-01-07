@@ -5,4 +5,15 @@
 2.take care of input empty string in leet code
 
 
-3.take care while adding two numbers they may not be dsame
+3.take care while adding two numbers they may not be same
+
+4.when doing string or ll questions always check the output for length=null,1,2,3
+
+5.look the solution for problem 1249 stack for string changing instead making a new string
+
+6.look solution 997 for using one hash table instad of two
+
+7.look solution 1249 in stacks to use pointer in bakward and forward dir and not using stack
+
+8.It is not necassery that the string consist of only lowercase letters or only letters.if it is no mention u have to consider an array of 256 size instrad if 26 size.read the solution of question125 and also 3 to find how to use the above array(-32 instead of -'a'
+
