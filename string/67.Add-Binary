@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int ptra=a.length()-1 ,ptrb=b.length()-1,carry=0,A,B;
+        string final="";
+            while(ptra>=0||ptrb>=0||carry==1)
+            {
+                A=ptra>=0?a[ptra--]-'0':0;
+                B=ptrb>=0?b[ptrb--]-'0':0;
+                int q=0;
+                 if(A==1)
+                     q++;
+                if(B==1)
+                    q++;
+                if(carry==1)
+                    q++;
+                final=final+char((q%2)+'0');
+                carry=q>=2?1:0;
+            }
+           reverse(final.begin(), final.end()); 
+              return final;
+       }
+};

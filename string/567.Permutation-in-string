@@ -1,0 +1,47 @@
+#define ll long long
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        {
+            ll m=s1.length();
+            ll n=s2.length();
+            if(n<m)
+                return false;
+            ll c[26]={0},A[26]={0};
+            for(ll i=0;i<m;i++)
+            {
+                ll b=s1[i]-'a';
+                c[b]++;
+            }
+         
+            ll j=0;
+            for(ll i=0;i<n-m+1;i++)
+            {
+                if(i!=0)
+                {
+                ll b=s2[i-1]-'a';
+                    A[b]--;
+                }
+                while(j<i+m&&j<n)
+                {
+                    ll b=s2[j]-'a';
+                    A[b]++;
+                    j++;
+                }
+                 ll p=1;
+                for(ll i=0;i<26;i++)
+                {
+                    if(A[i]!=c[i])
+                    {
+                        p=-1;
+                        break;
+                    }
+                }
+        
+                if(p==1)
+                    return true;
+            }
+            return false;
+        }
+    }
+};
