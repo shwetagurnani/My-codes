@@ -1,0 +1,22 @@
+#define pb push_back
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        map<vector<int>,vector<string>>mp;
+        for(string s:strs)
+        {
+             vector<int> v(26,0); 
+            for(char c:s)
+            {
+                v[c-'a']++;
+            }
+            mp[v].pb(s);
+        }
+    
+    vector<vector<string> >anagrams;
+   for (auto p : mp) { 
+            anagrams.push_back(p.second);
+        }
+    return anagrams;
+    }
+};

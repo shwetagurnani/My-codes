@@ -17,3 +17,47 @@
 
 8.It is not necassery that the string consist of only lowercase letters or only letters.if it is no mention u have to consider an array of 256 size instrad if 26 size.read the solution of question125 and also 3 to find how to use the above array(-32 instead of -'a'
 
+9. One should keep in mind that real world performance can be different from what the Big-O notation says. The Big-O notation only tells us that for sufficiently large input, one will be faster than the other. Therefore, when nnn is not sufficiently large, an O(n)O(n)O(n) algorithm can be slower than an O(nlog⁡n)O(n \log n)O(nlogn) algorithm.
+
+10.std::fill(nums.begin() + i, nums.end(), 0);
+
+if else ki jgH uze ternary op
+
+
+char((q%2)+'0')
+
+hash table better in case if there are unicode characters instead of just alphabets
+
+strings-to remove ambiguity always ask the interviewer string consist of which kind of letter .is it case sensitive or not
+
+        string res;   
+        for(int i=v.size()-1;i>=0;i--) //append on the basis of frequency in new string
+        res.append(v[i].first,v[i].second);
+        
+
+Always think of stack whenever there is a talk about reverse
+
+to initialise a 2-d vector
+ vector<vector<int>> dp(A.size(),vector<int>(A.size(),INT_MAX));
+
+to run a 2-d vector
+for(auto& x:dp[dp.size()-1]){
+            ans = min(ans,x);
+    }
+
+Packet making
+int n = arr.size();
+       int left = 0, right = 0;
+       while(right<n)
+       {
+         while(right < n && arr[left] == arr[right])
+             right++;
+         
+           cout<<right-left;
+           left = right ;
+       }
+
+to count digits 
+floor(log10(n))+1;
+to count bits
+log2(n)+1;

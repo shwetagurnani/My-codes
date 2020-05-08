@@ -1,0 +1,22 @@
+#define pb push_back
+#define mp make_pair
+class Solution {
+public:
+    string frequencySort(string s) {
+        vector<pair<int,int>>v;
+        int c[258]={0};
+        for(auto itr:s) //counting the frequency of every character
+         c[itr]++;
+        for(int i=0;i<256;i++)//storing the frequency of every character as a first element of vector pair
+        {
+            if(c[i]!=0) //storing only those characters
+                v.pb(mp(c[i],i));
+        }
+        sort(v.begin(), v.end()); //sorting on the basis of frequency
+        string res;   
+        for(int i=v.size()-1;i>=0;i--) //append on the basis of frequency in new string
+        res.append(v[i].first,v[i].second);
+        
+        return res;
+    }
+};

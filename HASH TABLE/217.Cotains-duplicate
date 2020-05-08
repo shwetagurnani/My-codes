@@ -1,0 +1,36 @@
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+      map<int,int>mp;
+        for(auto i:nums)
+        {
+            if(mp[i]!=0)
+                return true;
+            mp[i]++;
+        }
+        return false;
+    }
+};
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        if(nums.size()==0)
+            return false;
+        sort(nums.begin(),nums.end());
+        //  for(int i=0;i<nums.size();i++)
+        // {
+        //   cout<<nums[i];
+        // }
+        for(int i=0;i<nums.size()-1;i++)
+        {
+            if(nums[i]==nums[i+1])
+                return true;
+        }
+        return false;
+    }
+};
+
+one other method is to transfer all the elements in the set,Check if the size of the set is getting changed after inserting an element in the list
+
+for ith integer check only 1 to i-1 integers.(TLE)n*(n+1)/2.

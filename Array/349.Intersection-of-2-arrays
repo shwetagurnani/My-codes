@@ -1,0 +1,93 @@
+#define pb push_back
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) { 
+   vector<int>nums3;       
+sort(nums1.begin(),nums1.end());
+sort(nums2.begin(),nums2.end());
+        if(nums1.size()==0||nums2.size()==0)
+            return nums3;
+      set<int>s;
+int i=0,j=0,k=0;
+while(i<nums1.size()&&j<nums2.size())
+{
+    while(nums1[i]<nums2[j])
+    {
+        i++;
+        if(i==nums1.size())
+            break;
+    }
+   
+    if(i<=nums1.size()-1)
+    {
+    while(nums1[i]>nums2[j])
+    {
+        j++;
+        if(j==nums2.size())
+        {
+
+            break;
+        }
+    }
+    }
+   if(i<nums1.size()&&j<nums2.size())
+    {
+    if(nums1[i]==nums2[j])
+    {
+      s.insert(nums1[i]);
+       
+        j++;
+        i++;
+    }
+    }
+}
+        for(auto it=s.begin();it!=s.end();it++)
+        {
+            cout<<*it;
+         nums1[k++]=*it;
+        }
+     
+    
+     nums1.erase(nums1.begin()+k,nums1.end());#define pb push_back
+class Solution {
+    
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        vector<int>v;
+        map<int,int>mp;
+        for(int i=0;i<nums1.size();i++)
+        {
+            
+                mp[nums1[i]]++;
+            if(mp[nums1[i]]>1)
+                mp[nums1[i]]--;
+        }
+        for(int i=0;i<nums2.size();i++)
+        {
+            
+            if(mp[nums2[i]]!=0)
+            {
+               v.pb(nums2[i]);
+                 mp[nums2[i]]--;
+            }
+           
+        
+        }
+       
+     //   map<int, int>::iterator itr; 
+  
+    // for (itr = mp.begin(); itr != mp.end(); ++itr) { 
+    //     cout<<itr->first<<" "<<itr->second<<endl;
+    //        if(itr->second<=0)
+    //         v.pb(itr->first);
+    // } 
+        
+        return v;
+    }
+};
+         return nums1;
+    }
+};
+
+
+

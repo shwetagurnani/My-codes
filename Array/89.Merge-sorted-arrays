@@ -1,0 +1,53 @@
+#define ll long long
+#define pb push_back
+class Solution {
+public:
+    int findnextgap(double n)
+    {
+        // cout<<"n"<<n;
+        n=n/2;
+        return ceil(n);
+    }
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        for(ll i=0;i<n;i++)
+            nums1[m+i]=nums2[i];
+        double gap=findnextgap(n+m);
+        int temp;
+            while(gap>=1)
+            {
+                int i=0;
+                while((i+gap)<n+m)
+                {
+                    if(nums1[i]>nums1[i+gap])
+                    {
+                        temp=nums1[i];
+                        nums1[i]=nums1[i+gap];
+                        nums1[i+gap]=temp;
+                    }
+                    i++;
+                }
+                if(gap!=1)
+                gap=findnextgap(gap);
+              
+                else
+                    break;
+            }
+        
+    }
+};
+
+#define ll long long
+#define pb push_back
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        
+        for(ll i=0;i<n;i++)
+        {
+            nums1[m+i]=nums2[i];
+        }
+        
+        sort(nums1.begin(),nums1.end());
+       // return nums1;
+    }
+};

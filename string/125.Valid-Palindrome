@@ -29,7 +29,7 @@ public:
         {
             if(s[front]!=s[back])
                 return false;
-            front++;
+            front++;prateek kuhadprateek kuhad
             back--;
             while(!((s[back]>='a'&&s[back]<='z')||(s[back]>='0'&&s[back]<='9')))
         {
